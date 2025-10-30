@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Wireless Headphones",
+    "price": 59.99,
+    "image": "assets/images/headphones.jpg",
+    "category": "electronics"
+  },
+  {
+    "id": 2,
+    "title": "Running Sneakers",
+    "price": 79.99,
+    "image": "assets/images/sneakers.jpg",
+    "category": "fashion"
+  }
+]
