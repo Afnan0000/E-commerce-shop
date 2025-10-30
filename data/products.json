@@ -1,23 +1,44 @@
 [
   {
     "id": 1,
-    "title": "كوب قهوة كلاسيكي",
+    "title": "Classic White Mug",
     "price": 25.00,
-    "image": "assets/images/classic-mug.jpg",
-    "description": "كوب أبيض بسيط وأنيق، مثالي لقهوتك الصباحية. مصنوع من السيراميك عالي الجودة."
+    "image": "https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?q=80&w=1600&auto=format&fit=crop",
+    "description": "A classic white ceramic mug with a smooth finish. Perfect for your everyday coffee."
   },
   {
     "id": 2,
-    "title": "كوب سفر حراري",
+    "title": "Travel Thermal Mug",
     "price": 45.50,
-    "image": "assets/images/travel-mug.jpg",
-    "description": "حافظ على مشروبك ساخناً لساعات. كوب من الفولاذ المقاوم للصدأ بسعة 400 مل."
+    "image": "https://images.unsplash.com/photo-1532634896-26909d0d0d38?q=80&w=1600&auto=format&fit=crop",
+    "description": "Keep your drink hot for hours. Stainless steel travel mug with a leak-proof lid."
   },
   {
     "id": 3,
-    "title": "كوب سيراميك ملون",
+    "title": "Colorful Hand-painted Mug",
     "price": 30.00,
-    "image": "assets/images/colorful-mug.jpg",
-    "description": "أضف لمسة من البهجة ليومك مع هذا الكوب الملون المصنوع يدوياً."
+    "image": "https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=1600&auto=format&fit=crop",
+    "description": "Brighten your mornings with this hand-painted artisanal mug."
+  },
+  {
+    "id": 4,
+    "title": "Minimal Pastel Mug",
+    "price": 28.00,
+    "image": "https://images.unsplash.com/photo-1585238342023-78b9fd0f5b57?q=80&w=1600&auto=format&fit=crop",
+    "description": "Soft pastel tone mug. Perfect gift with a cute, minimal look."
+  },
+  {
+    "id": 5,
+    "title": "Mug with Spoon Holder",
+    "price": 34.99,
+    "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1600&auto=format&fit=crop",
+    "description": "Functional mug with a spoon holder for instant stirring convenience."
+  },
+  {
+    "id": 6,
+    "title": "Cartoon Doodle Mug",
+    "price": 32.50,
+    "image": "https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=1600&auto=format&fit=crop",
+    "description": "Cute cartoon-style mug with small hand-drawn doodles. Cheerful and fun."
   }
 ]
