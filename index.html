@@ -18,15 +18,61 @@
     </nav>
   </header>
 
-  <main>
+
+    <main>
+
+    <!-- ✅ HERO SLIDER GOES HERE -->
+    <!-- 3. The Swiper HTML Structure -->
+    <div class="hero-slider swiper">
+        <div class="swiper-wrapper">
+
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+                <img src="assets/images/slider-1.jpg" alt="Special promotion on new arrivals">
+                <div class="slide-content">
+                    <h2>New Winter Collection</h2>
+                    <p>Discover our latest arrivals for the season.</p>
+                    <a href="shop.html" class="btn-primary">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+                <img src="assets/images/slider-2.jpg" alt="Handcrafted mugs">
+                <div class="slide-content">
+                    <h2>Handcrafted Mugs</h2>
+                    <p>Unique designs, perfect for your morning coffee.</p>
+                    <a href="shop.html" class="btn-primary">Explore</a>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+                <img src="assets/images/slider-3.jpg" alt="Limited time sale">
+                <div class="slide-content">
+                    <h2>Flash Sale - 30% Off!</h2>
+                    <p>Limited time offer on selected items.</p>
+                    <a href="shop.html" class="btn-primary">View Deals</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Pagination + arrows -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <!-- ✅ Your original content continues -->
     <h2>Welcome to our store!</h2>
     <p>Discover our curated collection of the best mugs.</p>
-    
+
     <h3>Featured Products</h3>
-    <div id="featured-products" class="products-grid">
-      <!-- Products will be loaded here by JavaScript -->
-    </div>
-  </main>
+    <div id="featured-products" class="products-grid"></div>
+
+</main>
+
 
   <script src="assets/js/main.js"></script> <!-- shared file first -->
   <script>
@@ -57,3 +103,4 @@
   </script>
 </body>
 </html>
+
