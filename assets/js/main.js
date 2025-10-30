@@ -1,28 +1,48 @@
-// main.js
-const CART_KEY = "myshop_cart";
+// --- إدارة سلة المشتريات (Cart Management) ---
 
+// دالة للحصول على السلة من التخزين المحلي (localStorage)
 function getCart() {
-  const stored = localStorage.getItem(CART_KEY);
-  return stored ? JSON.parse(stored) : [];
+  // إذا كانت السلة موجودة، قم بتحويلها من نص إلى كائن، وإلا فابدأ بسلة فارغة
+  return JSON.parse(localStorage.getItem('cart')) || [];
 }
 
+// دالة لحفظ السلة في التخزين المحلي
 function saveCart(cart) {
-  localStorage.setItem(CART_KEY, JSON.stringify(cart));
-  updateCartCount();
+  // قم بتحويل كائن السلة إلى نص واحفظه
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-function addToCart(product, qty = 1) {
+// دالة لإضافة منتج إلى السلة
+function addToCart(productId) {
   const cart = getCart();
-  const item = cart.find(i => i.id === product.id);
-  if (item) item.qty += qty;
-  else cart.push({ ...product, qty });
+  // ابحث إذا كان المنتج موجوداً بالفعل
+  const existingItem = cart.find(item => item.id === productId);
+
+  if (existingItem) {
+    // إذا كان موجوداً، زد الكمية
+    existingItem.quantity++;
+  } else {
+    // إذا لم يكن موجوداً، أضفه مع كمية 1
+    cart.push({ id: productId, quantity: 1 });
+  }
+  
   saveCart(cart);
+  updateCartIcon(); // تحديث أيقونة السلة
+  alert('تمت إضافة المنتج إلى السلة!');
 }
 
-function updateCartCount() {
+// دالة لتحديث عدد المنتجات في أيقونة السلة
+function updateCartIcon() {
   const cart = getCart();
-  const total = cart.reduce((sum, item) => sum + item.qty, 0);
-  document.getElementById("cart-count").textContent = total;
+  // حساب العدد الإجمالي للمنتجات (وليس عدد الأنواع المختلفة)
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  
+  const cartCountElement = document.getElementById('cart-count');
+  if (cartCountElement) {
+    cartCountElement.textContent = totalItems;
+    cartCountElement.style.display = totalItems > 0 ? 'inline' : 'none';
+  }
 }
 
-document.addEventListener("DOMContentLoaded", updateCartCount);
+// قم بتحديث أيقونة السلة عند تحميل أي صفحة
+document.addEventListener('DOMContentLoaded', updateCartIcon);
