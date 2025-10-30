@@ -1,16 +1,23 @@
 [
   {
     "id": 1,
-    "title": "Wireless Headphones",
-    "price": 59.99,
-    "image": "assets/images/headphones.jpg",
-    "category": "electronics"
+    "title": "كوب قهوة كلاسيكي",
+    "price": 25.00,
+    "image": "assets/images/classic-mug.jpg",
+    "description": "كوب أبيض بسيط وأنيق، مثالي لقهوتك الصباحية. مصنوع من السيراميك عالي الجودة."
   },
   {
     "id": 2,
-    "title": "Running Sneakers",
-    "price": 79.99,
-    "image": "assets/images/sneakers.jpg",
-    "category": "fashion"
+    "title": "كوب سفر حراري",
+    "price": 45.50,
+    "image": "assets/images/travel-mug.jpg",
+    "description": "حافظ على مشروبك ساخناً لساعات. كوب من الفولاذ المقاوم للصدأ بسعة 400 مل."
+  },
+  {
+    "id": 3,
+    "title": "كوب سيراميك ملون",
+    "price": 30.00,
+    "image": "assets/images/colorful-mug.jpg",
+    "description": "أضف لمسة من البهجة ليومك مع هذا الكوب الملون المصنوع يدوياً."
   }
 ]
