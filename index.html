@@ -1,46 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zenchica</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Font Awesome (icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Custom CSS -->
+  <meta charset="UTF-8">
+  <title>متجر الأكواب | الرئيسية</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">MyShop</a>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-        <a href="cart.html" class="btn btn-outline-secondary position-relative">
-          <i class="fa fa-shopping-cart"></i>
-          <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-        </a>
-      </div>
+  <header>
+    <a href="index.html" class="logo">متجر الأكواب</a>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="shop.html">المتجر</a>
+      <a href="contact.html">تواصل معنا</a>
+      <a href="cart.html">السلة (<span id="cart-count" style="display: none;">0</span> )</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>أهلاً بك في متجرنا!</h2>
+    <p>اكتشف مجموعتنا المختارة من أفضل الأكواب.</p>
+    
+    <h3>منتجات مميزة</h3>
+    <div id="featured-products" class="products-grid">
+      <!-- سيتم ملء المنتجات هنا بواسطة الجافاسكريبت -->
     </div>
-  </nav>
+  </main>
 
-  <div class="container my-5">
-    <!-- Page content here -->
-  </div>
+  <script src="assets/js/main.js"></script> <!-- الملف المشترك أولاً -->
+  <script>
+    // كود خاص بالصفحة الرئيسية فقط
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('featured-products');
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Main JS -->
-  <script src="assets/js/main.js"></script>
+      fetch('data/products.json')
+        .then(res => res.json())
+        .then(products => {
+          // عرض أول منتجين فقط كمنتجات مميزة
+          const featured = products.slice(0, 2); 
+          
+          featured.forEach(product => {
+            container.innerHTML += `
+              <div class="product-card">
+                <a href="product.html?id=${product.id}">
+                  <img src="${product.image}" alt="${product.title}">
+                  <h3>${product.title}</h3>
+                  <p class="price">${product.price.toFixed(2)} ر.س</p>
+                </a>
+                <button onclick="addToCart(${product.id})">أضف للسلة</button>
+              </div>
+            `;
+          });
+        });
+    });
+  </script>
 </body>
 </html>
-
