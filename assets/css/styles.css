@@ -1,7 +1,104 @@
+/* --- تنسيقات عامة --- */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Cairo', sans-serif; /* استخدام خط عربي جميل مثل Cairo */
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
 }
-.card img {
-  height: 220px;
+
+header {
+  background-color: white;
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #0056b3;
+  text-decoration: none;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #0056b3;
+}
+
+main {
+  padding: 30px;
+}
+
+/* --- تنسيقات بطاقة المنتج (تستخدم في shop.html و index.html) --- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  max-width: 100%;
+  height: 200px;
   object-fit: cover;
+  border-radius: 5px;
+}
+
+.product-card h3 {
+  margin: 15px 0 10px;
+  font-size: 1.1em;
+}
+
+.product-card .price {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.product-card a {
+  text-decoration: none;
+  color: inherit; /* يرث اللون من الأب */
+}
+
+/* --- تنسيقات سلة المشتريات --- */
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-left: 15px;
+}
+.cart-total {
+  margin-top: 30px;
+  text-align: right;
+  font-size: 1.5em;
+  font-weight: bold;
 }
