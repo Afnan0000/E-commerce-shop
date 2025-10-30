@@ -28,7 +28,7 @@
 
             <!-- Slide 1 -->
             <div class="swiper-slide">
-                <img src="assets/images/slider-1.jpg" alt="Special promotion on new arrivals">
+                <img src="assets/images/img1.jpg" alt="Special promotion on new arrivals">
                 <div class="slide-content">
                     <h2>New Winter Collection</h2>
                     <p>Discover our latest arrivals for the season.</p>
@@ -38,7 +38,7 @@
 
             <!-- Slide 2 -->
             <div class="swiper-slide">
-                <img src="assets/images/slider-2.jpg" alt="Handcrafted mugs">
+                <img src="assets/images/img2.jpg" alt="Handcrafted mugs">
                 <div class="slide-content">
                     <h2>Handcrafted Mugs</h2>
                     <p>Unique designs, perfect for your morning coffee.</p>
@@ -48,7 +48,7 @@
 
             <!-- Slide 3 -->
             <div class="swiper-slide">
-                <img src="assets/images/slider-3.jpg" alt="Limited time sale">
+                <img src="assets/images/img3.png" alt="Limited time sale">
                 <div class="slide-content">
                     <h2>Flash Sale - 30% Off!</h2>
                     <p>Limited time offer on selected items.</p>
@@ -101,6 +101,16 @@
         });
     });
   </script>
+  <script>
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    autoplay: { delay: 4000 },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    effect: "slide"
+  });
+</script>
 </body>
 </html>
+
 
