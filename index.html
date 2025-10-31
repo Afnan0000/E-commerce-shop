@@ -2,9 +2,9 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Mugs Store</title>
+  <title>Ceramic Cove</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Mugs Store — curated mugs, handcrafted & modern designs" />
+  <meta name="description" content="Ceramic Cove — curated mugs, handcrafted & modern designs" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
 <body>
 
   <header>
-    <a href="index.html" class="logo" aria-label="Mugs Store - Home">Mugs Store</a>
+    <a href="index.html" class="logo" aria-label="Ceramic Cove - Home">Ceramic Cove</a>
 
     <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
@@ -27,12 +27,14 @@
 
       <!-- Cart bubble and preview toggle -->
       <div id="cart-root" style="display:inline-block;position:relative;margin-left:12px;">
-        <button id="cart-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="cart-preview-wrap" style="background:none;border:0;cursor:pointer;">
-          <!-- Simple cart icon -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;color:#0b4f7a">
-            <path d="M7 4h-2l-1 2h2l1-2zM7 4h10l1.5 4H9L7 4z"></path>
+        <button id="cart-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="cart-preview-wrap" style="background:none;border:0;cursor:pointer;display:flex;align-items:center;">
+          <!-- Modern shopping-bag icon (outline) -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;color:#0b4f7a">
+            <path d="M6 2h12l1 4H5l1-4z"></path>
+            <path d="M3 6h18v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"></path>
+            <path d="M16 10a2 2 0 0 0-4 0"></path>
           </svg>
-          <span id="cart-count" style="display: none;margin-inline-start:6px;background:#ff6b6b;color:#fff;border-radius:999px;padding:2px 6px;font-size:0.8rem;">0</span>
+          <span id="cart-count" style="display: none;margin-inline-start:8px;background:#ff6b6b;color:#fff;border-radius:999px;padding:2px 6px;font-size:0.8rem;">0</span>
         </button>
 
         <!-- Cart preview placeholder (main.js will populate) -->
@@ -44,17 +46,16 @@
     </nav>
   </header>
 
-
   <main>
 
-    <!-- ✅ HERO SLIDER GOES HERE -->
-    <!-- 3. The Swiper HTML Structure -->
+    <!-- HERO SLIDER -->
     <div class="hero-slider swiper" aria-label="Hero slider">
         <div class="swiper-wrapper">
 
             <!-- Slide 1 -->
             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="New Winter Collection">
-                <img src="assets/images/img1.jpg" alt="Special promotion on new arrivals" loading="lazy">
+                <img src="assets/images/img1.jpg" alt="Special promotion on new arrivals" loading="lazy"
+                     onerror="this.onerror=null;this.src='assets/images/placeholder.png';console.warn('Image failed to load: assets/images/img1.jpg');">
                 <div class="slide-content">
                     <h2>New Winter Collection</h2>
                     <p>Discover our latest arrivals for the season.</p>
@@ -64,7 +65,8 @@
 
             <!-- Slide 2 -->
             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Handcrafted Mugs">
-                <img src="assets/images/img2.jpg" alt="Handcrafted mugs" loading="lazy">
+                <img src="assets/images/img2.jpg" alt="Handcrafted mugs" loading="lazy"
+                     onerror="this.onerror=null;this.src='assets/images/placeholder.png';console.warn('Image failed to load: assets/images/img2.jpg');">
                 <div class="slide-content">
                     <h2>Handcrafted Mugs</h2>
                     <p>Unique designs, perfect for your morning coffee.</p>
@@ -74,7 +76,8 @@
 
             <!-- Slide 3 -->
             <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Flash Sale - 30% Off">
-                <img src="assets/images/img3.png" alt="Limited time sale" loading="lazy">
+                <img src="assets/images/img3.png" alt="Limited time sale" loading="lazy"
+                     onerror="this.onerror=null;this.src='assets/images/placeholder.png';console.warn('Image failed to load: assets/images/img3.png');">
                 <div class="slide-content">
                     <h2>Flash Sale - 30% Off!</h2>
                     <p>Limited time offer on selected items.</p>
@@ -90,7 +93,6 @@
         <button class="swiper-button-next" aria-label="Next slide"></button>
     </div>
 
-    <!-- ✅ Your original content continues -->
     <h2>Welcome to our store!</h2>
     <p>Discover our curated collection of the best mugs.</p>
 
@@ -101,7 +103,7 @@
 
   <footer>
     <div style="max-width:1200px;margin:0 auto;padding:12px 18px;text-align:center">
-      © <span id="year"></span> Mugs Store — handcrafted mugs
+      © <span id="year"></span> Ceramic Cove — handcrafted mugs
     </div>
   </footer>
 
@@ -109,7 +111,6 @@
   <div id="global-toast-placeholder" aria-hidden="true"></div>
 
   <!-- Scripts -->
-  <!-- Load main utilities first (so addToCart etc. available) -->
   <script src="assets/js/main.js"></script>
 
   <!-- Home page only script (featured products rendering) -->
@@ -151,7 +152,8 @@
             div.className = 'product-card';
             div.innerHTML = `
               <a href="product.html?id=${product.id}">
-                <img src="${product.image}" alt="${product.title}" loading="lazy">
+                <img src="${product.image}" alt="${product.title}" loading="lazy"
+                     onerror="this.onerror=null;this.src='assets/images/placeholder.png';console.warn('Product image failed to load: ${product.image}');">
                 <h3>${product.title}</h3>
                 <p class="price">${Number(product.price).toFixed(2)} SAR</p>
               </a>
@@ -164,11 +166,9 @@
           container.querySelectorAll('.add-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
               const id = Number(e.currentTarget.getAttribute('data-id'));
-              // call your global addToCart from assets/js/main.js
               if (typeof addToCart === 'function') {
                 addToCart(id, 1);
               } else {
-                // fallback: add simple localStorage entry
                 const raw = localStorage.getItem('mugs_cart_v1') || '[]';
                 const cart = JSON.parse(raw);
                 const idx = cart.findIndex(i => i.id === id);
@@ -177,7 +177,6 @@
                 localStorage.setItem('mugs_cart_v1', JSON.stringify(cart));
                 alert('Added to cart (fallback)');
               }
-              // refresh visible counts
               if (typeof updateCartIcon === 'function') updateCartIcon();
               syncCartCount();
             });
@@ -196,14 +195,11 @@
   <!-- Initialize Swiper safely -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Wait for Swiper to be available
       function initSwiperIfReady() {
         if (typeof Swiper === 'undefined') {
-          // try again shortly
           setTimeout(initSwiperIfReady, 100);
           return;
         }
-        // initialize only if hero exists
         const hero = document.querySelector('.hero-slider');
         if (!hero) return;
         const swiper = new Swiper('.hero-slider', {
@@ -217,7 +213,6 @@
           a11y: { enabled: true }
         });
 
-        // Example hook: update cart preview when slide changes (optional)
         swiper.on('slideChange', () => { /* custom hooks if needed */ });
       }
       initSwiperIfReady();
@@ -232,10 +227,8 @@
           const open = cartPreview.style.display === 'block';
           cartPreview.style.display = open ? 'none' : 'block';
           cartToggle.setAttribute('aria-expanded', String(!open));
-          // attempt to build preview if main.js exposes function
           if (typeof buildCartPreview === 'function') buildCartPreview();
         });
-        // close on outside click
         document.addEventListener('click', (ev) => {
           if (!cartPreview.contains(ev.target) && ev.target !== cartToggle) {
             cartPreview.style.display = 'none';
