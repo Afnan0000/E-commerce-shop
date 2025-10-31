@@ -27,24 +27,27 @@
 
       <!-- Cart bubble and preview toggle -->
       <div id="cart-root" style="display:inline-block;position:relative;margin-left:12px;">
-        <button id="cart-toggle" aria-haspopup="true" aria-expanded="false"
-              aria-controls="cart-preview-wrap" aria-label="Open cart" class="cart-btn">
-        <!-- SVG outline bag -->
-        <svg class="cart-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
-          <title>Cart</title>
-          <path d="M6 2h12l1 4H5l1-4z"></path>
-          <path d="M3 6h18v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"></path>
-          <path d="M16 10a2 2 0 0 0-4 0"></path>
-        </svg>
-      
-        <span id="cart-count" class="cart-badge" aria-hidden="true">0</span>
-        <span class="sr-only" id="cart-announcer" aria-live="polite"></span>
-      </button>
-
-
-        <!-- Cart preview placeholder (main.js will populate) -->
-        <div id="cart-preview-wrap" class="cart-preview" style="display:none;right:0;top:40px;"></div>
-      </div>
+          <button id="cart-toggle"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls="cart-preview-wrap"
+                  aria-label="Open cart"
+                  class="cart-btn">
+            <!-- modern outline shopping-bag SVG (stroke-based) -->
+            <svg class="cart-icon" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+              <title>Cart</title>
+              <path d="M6 2h12l1 4H5l1-4z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M3 6h18v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M16 10a2 2 0 0 0-4 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+        
+            <!-- visible badge + a hidden announcer for screen readers -->
+            <span id="cart-count" class="cart-badge" aria-hidden="true">0</span>
+            <span class="sr-only" id="cart-announcer" aria-live="polite"></span>
+          </button>
+        
+          <div id="cart-preview-wrap" class="cart-preview" style="display:none;right:0;top:40px;"></div>
+        </div>
 
       <!-- Desktop Cart link fallback (keeps your original markup for compatibility) -->
       <a href="cart.html" style="margin-left:10px;">Cart (<span id="cart-count-fallback" style="display:none;">0</span>)</a>
@@ -246,5 +249,6 @@
 
 </body>
 </html>
+
 
 
