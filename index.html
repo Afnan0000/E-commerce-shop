@@ -27,15 +27,20 @@
 
       <!-- Cart bubble and preview toggle -->
       <div id="cart-root" style="display:inline-block;position:relative;margin-left:12px;">
-        <button id="cart-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="cart-preview-wrap" style="background:none;border:0;cursor:pointer;display:flex;align-items:center;">
-          <!-- Modern shopping-bag icon (outline) -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;color:#0b4f7a">
-            <path d="M6 2h12l1 4H5l1-4z"></path>
-            <path d="M3 6h18v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"></path>
-            <path d="M16 10a2 2 0 0 0-4 0"></path>
-          </svg>
-          <span id="cart-count" style="display: none;margin-inline-start:8px;background:#ff6b6b;color:#fff;border-radius:999px;padding:2px 6px;font-size:0.8rem;">0</span>
-        </button>
+        <button id="cart-toggle" aria-haspopup="true" aria-expanded="false"
+              aria-controls="cart-preview-wrap" aria-label="Open cart" class="cart-btn">
+        <!-- SVG outline bag -->
+        <svg class="cart-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+          <title>Cart</title>
+          <path d="M6 2h12l1 4H5l1-4z"></path>
+          <path d="M3 6h18v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"></path>
+          <path d="M16 10a2 2 0 0 0-4 0"></path>
+        </svg>
+      
+        <span id="cart-count" class="cart-badge" aria-hidden="true">0</span>
+        <span class="sr-only" id="cart-announcer" aria-live="polite"></span>
+      </button>
+
 
         <!-- Cart preview placeholder (main.js will populate) -->
         <div id="cart-preview-wrap" class="cart-preview" style="display:none;right:0;top:40px;"></div>
@@ -241,4 +246,5 @@
 
 </body>
 </html>
+
 
