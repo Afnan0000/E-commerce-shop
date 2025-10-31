@@ -1,28 +1,35 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>تفاصيل المنتج</title>
+  <title>Product Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="assets/css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
-    <a href="index.html" class="logo">متجر الأكواب</a>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="shop.html">المتجر</a>
-      <a href="contact.html">تواصل معنا</a>
-      <a href="cart.html">السلة (<span id="cart-count" style="display: none;">0</span> )</a>
+    <a href="index.html" class="logo">Mugs Store</a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="cart.html">
+        Cart (<span id="cart-count" style="display:none;">0</span>)
+      </a>
     </nav>
   </header>
 
   <main>
-    <!-- سيتم عرض تفاصيل المنتج هنا بواسطة product.js -->
     <div id="product-details-container"></div>
   </main>
 
+  <!-- Scripts -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/product.js"></script>
 </body>
