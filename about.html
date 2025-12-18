@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Mugs Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Learn about Mugs Store — our story, mission, and passion for handcrafted mugs." />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 60px;
+        }
+
+        .about-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .about-content.reverse {
+            direction: rtl;
+        }
+
+        .about-content.reverse>* {
+            direction: ltr;
+        }
+
+        .about-text h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        .about-text p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .values-section {
+            background: #f8f9ff;
+            padding: 60px 20px;
+            margin-bottom: 60px;
+        }
+
+        .values-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .value-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-card .icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .value-card .icon svg {
+            width: 28px;
+            height: 28px;
+            color: #fff;
+        }
+
+        .value-card h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .team-member h3 {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .team-member p {
+            color: #6366f1;
+            font-weight: 500;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .cta-section a {
+            display: inline-block;
+            background: #fff;
+            color: #6366f1;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-section a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo" aria-label="Mugs Store - Home">Mugs Store</a>
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="contact.html">Contact Us</a>
+            <!-- Cart icon link -->
+            <a href="cart.html" class="cart-link" aria-label="View cart"
+                style="display:inline-flex;align-items:center;margin-left:12px;position:relative;text-decoration:none;">
+                <svg class="cart-icon" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"
+                    style="width:24px;height:24px;">
+                    <title>Cart</title>
+                    <circle cx="9" cy="21" r="1.5" fill="currentColor" />
+                    <circle cx="18" cy="21" r="1.5" fill="currentColor" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                </svg>
+                <span id="cart-count" class="cart-badge" aria-hidden="true"
+                    style="position:absolute;top:-8px;right:-8px;background:#e74c3c;color:#fff;font-size:11px;padding:2px 6px;border-radius:10px;display:none;">0</span>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <h1>About Mugs Store</h1>
+            <p>Crafting beautiful moments, one mug at a time. Discover our passion for handcrafted ceramics and premium
+                designs.</p>
+        </section>
+
+        <section class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Founded in 2020, Mugs Store began as a small passion project in a cozy garage workshop. What
+                        started as a hobby of creating unique, handcrafted mugs for friends and family has blossomed
+                        into a beloved brand serving coffee enthusiasts worldwide.</p>
+                    <p>Every mug we create tells a story — from the careful selection of materials to the final glaze,
+                        we pour our heart into each piece.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/img1.jpg" alt="Our workshop"
+                        onerror="this.style.background='linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%)';this.alt='Workshop';">
+                </div>
+            </div>
+
+            <div class="about-content reverse">
+                <div class="about-text">
+                    <h2>Our Mission</h2>
+                    <p>We believe that everyday moments deserve beautiful objects. Our mission is to create mugs that
+                        bring joy to your daily rituals — whether it's your morning coffee, afternoon tea, or late-night
+                        hot chocolate.</p>
+                    <p>We're committed to sustainable practices, quality craftsmanship, and designs that stand the test
+                        of time.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/img2.jpg" alt="Our mission"
+                        onerror="this.style.background='linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%)';this.alt='Mission';">
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <h2>What We Stand For</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                    </div>
+                    <h3>Made with Love</h3>
+                    <p>Every mug is crafted with passion and attention to detail, ensuring you receive a piece made with
+                        care.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <h3>Quality First</h3>
+                    <p>We use only premium materials and rigorous quality checks to ensure durability and beauty.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                            <line x1="12" y1="22.08" x2="12" y2="12" />
+                        </svg>
+                    </div>
+                    <h3>Eco-Friendly</h3>
+                    <p>Sustainable practices guide our process, from sourcing to packaging with recyclable materials.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <h2>Meet the Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="avatar">👩‍🎨</div>
+                    <h3>Sarah Chen</h3>
+                    <p>Founder & Designer</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">👨‍🔧</div>
+                    <h3>Mike Rodriguez</h3>
+                    <p>Master Craftsman</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">👩‍💼</div>
+                    <h3>Emma Williams</h3>
+                    <p>Customer Experience</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Find Your Perfect Mug?</h2>
+            <p>Browse our collection and discover handcrafted pieces made just for you.</p>
+            <a href="shop.html">Shop Now</a>
+        </section>
+    </main>
+
+    <footer>
+        <div style="max-width:1200px;margin:0 auto;padding:12px 18px;text-align:center">
+            © <span id="year"></span> Mugs Store — handcrafted mugs for every moment
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        const yearEl = document.getElementById('year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
