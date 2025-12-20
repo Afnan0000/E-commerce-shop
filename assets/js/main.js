@@ -93,8 +93,56 @@ window.addEventListener('storage', (e) => {
   if (e.key === CART_KEY || e.key === 'mugs_cart_update_ts') {
     updateCartIcon();
   }
+  if (e.key === 'mugs_theme') {
+    applyTheme(e.newValue);
+  }
 });
+
+/* ===== Theme Management ===== */
+const THEME_KEY = 'mugs_theme';
+
+function getPreferredTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  if (saved) return saved;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function applyTheme(theme) {
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+}
+
+function toggleTheme() {
+  const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  localStorage.setItem(THEME_KEY, newTheme);
+  applyTheme(newTheme);
+}
+
+function initTheme() {
+  const theme = getPreferredTheme();
+  applyTheme(theme);
+
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem(THEME_KEY)) {
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+}
+
+// Initialize theme immediately to prevent flash
+initTheme();
 
 document.addEventListener('DOMContentLoaded', () => {
   updateCartIcon();
+
+  // Setup theme toggle button
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
 });

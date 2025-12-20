@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  document.title = p.title + ' - Mugs Store';
+  document.title = p.title + ' - Mugcraft';
 
   container.innerHTML = `
     <div style="display:flex;gap:28px;flex-wrap:wrap;">

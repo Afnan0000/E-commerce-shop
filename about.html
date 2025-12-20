@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>About Us - Mugs Store</title>
+    <title>About Us - Mugcraft</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Learn about Mugs Store — our story, mission, and passion for handcrafted mugs." />
+    <meta name="description" content="Learn about Mugcraft — our story, mission, and passion for handcrafted mugs." />
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;600;700&display=swap"
         rel="stylesheet">
@@ -247,11 +247,15 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo" aria-label="Mugs Store - Home">Mugs Store</a>
+        <a href="index.html" class="logo" aria-label="Mugcraft - Home">Mugcraft</a>
         <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
             <a href="contact.html">Contact Us</a>
+
+            <span id="auth-links">
+                <!-- Auth links injected by auth.js -->
+            </span>
             <!-- Cart icon link -->
             <a href="cart.html" class="cart-link" aria-label="View cart"
                 style="display:inline-flex;align-items:center;margin-left:12px;position:relative;text-decoration:none;">
@@ -266,12 +270,24 @@
                 <span id="cart-count" class="cart-badge" aria-hidden="true"
                     style="position:absolute;top:-8px;right:-8px;background:#e74c3c;color:#fff;font-size:11px;padding:2px 6px;border-radius:10px;display:none;">0</span>
             </a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                    </path>
+                </svg>
+                <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                    </path>
+                </svg>
+            </button>
         </nav>
     </header>
 
     <main>
         <section class="about-hero">
-            <h1>About Mugs Store</h1>
+            <h1>About Mugcraft</h1>
             <p>Crafting beautiful moments, one mug at a time. Discover our passion for handcrafted ceramics and premium
                 designs.</p>
         </section>
@@ -280,7 +296,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>Our Story</h2>
-                    <p>Founded in 2020, Mugs Store began as a small passion project in a cozy garage workshop. What
+                    <p>Founded in 2020, Mugcraft began as a small passion project in a cozy garage workshop. What
                         started as a hobby of creating unique, handcrafted mugs for friends and family has blossomed
                         into a beloved brand serving coffee enthusiasts worldwide.</p>
                     <p>Every mug we create tells a story — from the careful selection of materials to the final glaze,
@@ -385,6 +401,7 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/auth.js"></script>
     <script>
         const yearEl = document.getElementById('year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
