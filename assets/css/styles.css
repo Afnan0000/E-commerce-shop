@@ -1108,6 +1108,10 @@ footer {
 }
 
 /* Mobile Navigation Overlay */
+.mobile-menu {
+  display: none;
+}
+
 @media (max-width: 768px) {
 
   /* Header Layout Adjustment */

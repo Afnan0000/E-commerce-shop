@@ -25,7 +25,20 @@
       <span id="auth-links">
         <!-- Auth links injected by auth.js -->
       </span>
-
+      <!-- Cart icon link -->
+      <a href="cart.html" class="cart-link" aria-label="View cart"
+        style="display:inline-flex;align-items:center;margin-left:12px;position:relative;text-decoration:none;">
+        <svg class="cart-icon" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"
+          style="width:24px;height:24px;">
+          <title>Cart</title>
+          <circle cx="9" cy="21" r="1.5" fill="currentColor" />
+          <circle cx="18" cy="21" r="1.5" fill="currentColor" />
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </svg>
+        <span id="cart-count" class="cart-badge" aria-hidden="true"
+          style="position:absolute;top:-8px;right:-8px;background:#e74c3c;color:#fff;font-size:11px;padding:2px 6px;border-radius:10px;display:none;">0</span>
+      </a>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
         <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
