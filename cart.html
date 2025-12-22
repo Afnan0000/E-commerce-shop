@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+    <a href="index.html" class="logo">Mugcraft</a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact Us</a>
+
+      <span id="auth-links">
+        <!-- Auth links injected by auth.js -->
+      </span>
+      <!-- Cart icon link -->
+      <a href="cart.html" class="cart-link" aria-label="View cart"
+        style="display:inline-flex;align-items:center;margin-left:12px;position:relative;text-decoration:none;">
+        <svg class="cart-icon" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"
+          style="width:24px;height:24px;">
+          <title>Cart</title>
+          <circle cx="9" cy="21" r="1.5" fill="currentColor" />
+          <circle cx="18" cy="21" r="1.5" fill="currentColor" />
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </svg>
+        <span id="cart-count" class="cart-badge" aria-hidden="true"
+          style="position:absolute;top:-8px;right:-8px;background:#e74c3c;color:#fff;font-size:11px;padding:2px 6px;border-radius:10px;display:none;">0</span>
+      </a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+          </path>
+        </svg>
+        <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Your Shopping Cart</h1>
+    <div id="cart-items-container">
+      <!-- Cart items will be displayed here -->
+    </div>
+    <div id="cart-total" class="cart-total"></div>
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="checkout.html"
+        style="background-color: #28a745; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px;">Proceed
+        to Checkout</a>
+    </div>
+  </main>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCart();
+    });
+
+    function renderCart() {
+      const container = document.getElementById('cart-items-container');
+      const totalEl = document.getElementById('cart-total');
+      const cart = getCart(); // from main.js
+      const products = typeof getProducts === 'function' ? getProducts() : [];
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p>Your cart is empty. <a href="shop.html">Start shopping now!</a></p>';
+        totalEl.textContent = '';
+        return;
+      }
+
+      let totalCost = 0;
+      container.innerHTML = '';
+
+      cart.forEach(cartItem => {
+        const product = products.find(p => p.id === cartItem.id);
+        if (product) {
+          const itemTotal = product.price * cartItem.quantity;
+          totalCost += itemTotal;
+
+          container.innerHTML += `
+            <div class="cart-item">
+              <img src="${product.image}" alt="${product.title}" onerror="this.src='images/placeholder.jpg'; this.onerror=null;">
+              <div>
+                <h3>${product.title}</h3>
+                <p>Price: ${product.price.toFixed(2)} SAR</p>
+                
+                <div class="cart-controls">
+                  <div class="qty-group">
+                    <button class="qty-btn" onclick="updateItemQty(${cartItem.id}, ${cartItem.quantity - 1})" aria-label="Decrease quantity">-</button>
+                    <span class="qty-display">${cartItem.quantity}</span>
+                    <button class="qty-btn" onclick="updateItemQty(${cartItem.id}, ${cartItem.quantity + 1})" aria-label="Increase quantity">+</button>
+                  </div>
+                  <button class="remove-btn" onclick="removeItem(${cartItem.id})" aria-label="Remove item">Remove</button>
+                </div>
+                
+                <p style="margin-top: 8px; font-weight: 700;">Subtotal: ${itemTotal.toFixed(2)} SAR</p>
+              </div>
+            </div>
+          `;
+        }
+      });
+
+      totalEl.textContent = `Total: ${totalCost.toFixed(2)} SAR`;
+    }
+
+    // Helper to update quantity
+    function updateItemQty(id, newQty) {
+      if (newQty < 1) {
+        // If reducing below 1, maybe confirm removal or just do nothing?
+        // User asked for "remove or minus". Usually minus to 0 removes.
+        // Let's allow removal via minus if desired, or clamp to 1. 
+        // I'll clamp to 1 since there is an explicit remove button.
+        newQty = 1;
+      }
+      setQuantity(id, newQty); // from main.js
+      renderCart();
+    }
+
+    // Helper to remove item
+    function removeItem(id) {
+      if (confirm('Are you sure you want to remove this item?')) {
+        removeFromCart(id); // from main.js
+        renderCart();
+      }
+    }
+  </script>
+</body>
+
+</html>
